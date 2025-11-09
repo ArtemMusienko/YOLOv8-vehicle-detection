@@ -1,5 +1,7 @@
 ![Google Colab](https://img.shields.io/badge/Google%20Colab-%23F9A825.svg?style=for-the-badge&logo=googlecolab&logoColor=white)![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)![OpenCV](https://img.shields.io/badge/opencv-%23white.svg?style=for-the-badge&logo=opencv&logoColor=white)![Matplotlib](https://img.shields.io/badge/Matplotlib-%23ffffff.svg?style=for-the-badge&logo=Matplotlib&logoColor=black)![Kaggle](https://img.shields.io/badge/Kaggle-035a7d?style=for-the-badge&logo=kaggle&logoColor=white)![Google Drive](https://img.shields.io/badge/Google%20Drive-4285F4?style=for-the-badge&logo=googledrive&logoColor=white)
 
+<img width="2048" height="681" alt="image" src="https://github.com/user-attachments/assets/692b58fe-7261-42d4-9a75-6dda7ed02c5c" />
+
 ## YOLOv8-vehicle-detection
 
 Современный мир уже трудно представить без камер видеонаблюдения. Такие камеры уже оснащены детекцией автомобилей, номерных знаков и так далее. Не всегда получаются качественные изображения транспортных средств, что приводит к сложностям детекции в связи с ограниченной освещенностью. Для решения подобных задачи можно использовать модели **YOLO** от компании **Ultralytics**. Из семейства этих моделей была выбрана **8** версия. Почему? Она сочетает в себе зрелость экосистемы **Ultralytics** и современную архитектуру, эта модель обладает расширенными возможностями по сравнению с предшественниками, а именно: сегментация экземпляров, оценка позы/ключевых точек и классификация.
