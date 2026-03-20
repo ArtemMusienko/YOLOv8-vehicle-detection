@@ -1,21 +1,23 @@
 ![Google Colab](https://img.shields.io/badge/Google%20Colab-%23F9A825.svg?style=for-the-badge&logo=googlecolab&logoColor=white)![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)![OpenCV](https://img.shields.io/badge/opencv-%23white.svg?style=for-the-badge&logo=opencv&logoColor=white)![Matplotlib](https://img.shields.io/badge/Matplotlib-%23ffffff.svg?style=for-the-badge&logo=Matplotlib&logoColor=black)![Kaggle](https://img.shields.io/badge/Kaggle-035a7d?style=for-the-badge&logo=kaggle&logoColor=white)![Google Drive](https://img.shields.io/badge/Google%20Drive-4285F4?style=for-the-badge&logo=googledrive&logoColor=white)![YOLO](https://img.shields.io/badge/YOLO-111F68?style=for-the-badge&logo=yolo&logoColor=white)
 
-<img width="2048" height="681" alt="image" src="https://github.com/user-attachments/assets/692b58fe-7261-42d4-9a75-6dda7ed02c5c" />
+<img  width="2048"  height="681"  alt="image"  src="https://github.com/user-attachments/assets/692b58fe-7261-42d4-9a75-6dda7ed02c5c"  />
 
 ## YOLOv8-vehicle-detection
 
-Современный мир уже трудно представить без камер видеонаблюдения. Такие камеры уже оснащены детекцией автомобилей, номерных знаков и так далее. Не всегда получаются качественные изображения транспортных средств, что приводит к сложностям детекции в связи с ограниченной освещенностью. Для решения подобных задачи можно использовать модели **YOLO** от компании **Ultralytics**. Из семейства этих моделей была выбрана **8** версия. Почему? Она сочетает в себе зрелость экосистемы **Ultralytics** и современную архитектуру, эта модель обладает расширенными возможностями по сравнению с предшественниками, а именно: сегментация экземпляров, оценка позы/ключевых точек и классификация.
+[![ru](https://img.shields.io/badge/README_на_русском-2A2C39?style=for-the-badge&logo=github&logoColor=white)](README.ru.md)  
 
-> Настоятельно рекомендую использовать **графический ускоритель T4** или
-> мощнее!
+It is already difficult to imagine the modern world without video surveillance cameras. Such cameras are already equipped with detection of cars, license plates, and so on. It is not always possible to obtain high-quality images of vehicles, which leads to difficulties in detection due to limited illumination. To solve such problems, you can use the **YOLO** models from **Ultralytics**. The **8** version was chosen from the family of these models. Why? It combines the maturity of the Ultralytics ecosystem with a modern architecture, providing advanced capabilities compared to its predecessors, including instance segmentation, pose/keypoint estimation, and classification.
 
-В качества датасета будет использоваться [Cars Detection](https://www.google.com/url?q=https%3A%2F%2Fwww.kaggle.com%2Fdatasets%2Fabdallahwagih%2Fcars-detection%2Fdata). Для того, чтобы его скачать, нам потребуется зарегистрироваться на **Kaggle** и получить свой _API-ключ_ через настройки профиля. Для завершения процесса вам необходимо ввести ключ и никнейм в два поля, которые будут указаны в интерфейсе, а затем отправить эту информацию на сервер **Kaggle** для проверки соответствия данных.
+> I strongly recommend using a **T4 graphics accelerator** or
+> something more powerful!
 
-Для достижения поставленной задачи - детекция транспортных средств в условиях ограниченной освещенности, будем использовать аугментацию изображений. В коде есть возможность добавление в итоговый датасет только аугментированных изображений, а также оригинальные + аугментированные.
+The dataset will be used [Cars Detection](https://www.google.com/url?q=https%3A%2F%2Fwww.kaggle.com%2Fdatasets%2Fabdallahwagih%2Fcars-detection%2Fdata). In order to download it, we will need to register on **Kaggle** and get your _API key_ through the profile settings. To complete the process, you need to enter the key and nickname in the two fields provided in the interface, and then submit this information to the Kaggle server for verification.
 
-Будем использовать среднюю модель `yolo8m.pt`, которая предобучена для работы с обнаружением объектов. Так как я ограничен вычислительными ресурсами, то я выбрал среднюю модель, но вы можете выбрать более сложную модель, которая будет способна выдавать результаты лучше, но она будет ресурсозатратнее. 
+To achieve the task of detecting vehicles in low-light conditions, we will use image augmentation. The code allows you to add only augmented images to the final dataset, as well as original and augmented images.
 
-Для улучшения качества работы кода можно использовать графические ускорители, которые мощнее **T4**. Также можно внедрить очистку "мусора", что приведет к небольшой оптимизации кода. Затем можно использовать расширенный набор данных, то есть использовать и аугментированные, и оригинальные данные. Такую функцию я реализовал на уровне кода в виде кнопок. Далее можно подобрать более серьезную версию модели, например, `yolov8l.pt` или `yolov8x.pt`, что потенциально может привести к более качественным результатам, но взамен они будут требовать более мощные вычислительные ресурсы. Можно добавить большее количество эпох для обучения модели, так как явно отсутствует переобучение. Ну и заключительной рекомендацией будет добавление функции предсказания на видео.
+ We will use the medium-sized model `yolo8m.pt`, which is pre-trained for object detection. Since I am limited in computational resources, I have chosen the medium-sized model, but you can choose a more complex model that will produce better results but will require more resources.
 
-> Более подробная информация по написанию кода, а также теоретическая
-> часть и выводы представлены в самой работе!
+To improve the quality of the code, you can use graphics accelerators that are more powerful than **T4**. You can also implement garbage collection, which will lead to a slight optimization of the code. Then, you can use an extended dataset, which includes both augmented and original data. I have implemented this feature at the code level using buttons. Finally, you can choose a more advanced model version, such as `yolov8l.pt` or `yolov8x.pt`, which may produce better results but require more powerful computing resources. It is possible to add more epochs to train the model, as there is clearly no overfitting. Finally, it is recommended to add a prediction function to the video.
+
+> For more information on writing code, as well as theoretical
+> part and conclusions, please refer to the paper itself!
